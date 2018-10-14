@@ -1,10 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-5">
-      <app-produto></app-produto>
+<div class="card mt-5">
+    <div class="card-body">
+        <form #formProduto="ngForm" (ngSubmit)="onSubmit(formProduto)">
+            <div class="form-group">
+                <input type="text" class="form-control" name="nome" #name="ngModel" [(ngModel)]="produtoService.produtoSelecionado.nome" placeholder="Nome Produto">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="categoria" #categoria="ngModel" [(ngModel)]="produtoService.produtoSelecionado.categoria" placeholder="Categoria">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="localidade" #localidade="ngModel" [(ngModel)]="produtoService.produtoSelecionado.localidade" placeholder="Localidade">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="preco" #preco="ngModel" [(ngModel)]="produtoService.produtoSelecionado.preco" placeholder="Preço">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-plus-circle"></i> Adicionar Produto
+                </button>
+                <button class="btn btn-secondary" type="reset" (click)="limpaFormulario(formProduto)">
+                    <i class="fas fa-sync-alt"></i> Limpar
+                </button>
+            </div>
+        </form>
     </div>
-    <div class="col-md-5 text-center">
-      <app-lista-produtos></app-lista-produtos>
-    </div>
-  </div>
 </div>

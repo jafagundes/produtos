@@ -9,6 +9,7 @@ import { ProdutosComponent } from './components/produtos/produtos.component';
 import { ListaProdutosComponent } from './components/produtos/lista-produtos/lista-produtos.component';
 import { ProdutoComponent } from './components/produtos/produto/produto.component';
 import { ProdutoService } from './services/produto.service';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProdutoService } from './services/produto.service';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [
     ProdutoService
