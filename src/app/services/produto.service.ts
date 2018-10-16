@@ -15,6 +15,7 @@ export class ProdutoService {
 
   getProdutos() {
     this.produtoList = this.firebase.list('produtos');
+    return this.produtoList;
   }
 
   insereProduto(produto: Produto) {

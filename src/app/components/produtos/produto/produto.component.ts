@@ -18,7 +18,12 @@ export class ProdutoComponent implements OnInit {
   }
 
   onSubmit(formProduto: NgForm) {
-    this.produtoService.insereProduto(formProduto.value);
+    if(formProduto.value.$id == null) {
+      this.produtoService.insereProduto(formProduto.value);
+    } else {
+      this.produtoService.atualizaProduto(formProduto.value);
+    }
+
     this.limpaFormulario(formProduto);
   }
 

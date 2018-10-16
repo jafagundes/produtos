@@ -1,6 +1,7 @@
 <div class="card mt-5">
     <div class="card-body">
         <form #formProduto="ngForm" (ngSubmit)="onSubmit(formProduto)">
+            <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="produtoService.produtoSelecionado.$id">
             <div class="form-group">
                 <input type="text" class="form-control" name="nome" #name="ngModel" [(ngModel)]="produtoService.produtoSelecionado.nome" placeholder="Nome Produto">
             </div>

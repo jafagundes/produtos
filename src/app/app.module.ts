@@ -10,6 +10,8 @@ import { ListaProdutosComponent } from './components/produtos/lista-produtos/lis
 import { ProdutoComponent } from './components/produtos/produto/produto.component';
 import { ProdutoService } from './services/produto.service';
 import { FormsModule }   from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { FormsModule }   from '@angular/forms';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    FormsModule
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     ProdutoService
