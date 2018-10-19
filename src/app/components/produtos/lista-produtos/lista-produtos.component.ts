@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../../../services/produto.service';
 import { Produto } from '../../../model/produto';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -11,7 +12,8 @@ export class ListaProdutosComponent implements OnInit {
 
   listaProdutos: Produto[];
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private produtoService: ProdutoService,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
     this.produtoService.getProdutos().snapshotChanges().subscribe(
@@ -33,7 +35,10 @@ export class ListaProdutosComponent implements OnInit {
   }
 
   deletar($id: string) {
-    this.produtoService.removeProduto($id);
+    if (confirm('Deseja deletar o produto?')) {
+      this.produtoService.removeProduto($id);
+      this.toastr.success('OK', 'Produto deletado com sucesso');
+    }
   }
 
 }
