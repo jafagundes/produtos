@@ -14,8 +14,8 @@
             <div class="form-group">
                 <input type="text" class="form-control" name="preco" #preco="ngModel" [(ngModel)]="produtoService.produtoSelecionado.preco" placeholder="Preço">
             </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">
+            <div class="form-group float-right">
+                <button class="btn btn-primary mr-2" type="submit">
                     <i class="fas fa-plus-circle"></i> Adicionar Produto
                 </button>
                 <button class="btn btn-secondary" type="reset" (click)="limpaFormulario(formProduto)">
